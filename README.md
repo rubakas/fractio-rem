@@ -1,6 +1,6 @@
 # Fractio Rem (@rubakas/fractio-rem)
 
-> Fractional root element space and size scale
+> Fractional root element space and size scale for TailwindCSS
 
 Install the plugin from npm:
 
