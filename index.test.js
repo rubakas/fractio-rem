@@ -22,7 +22,7 @@ function generatePluginCss(overrides) {
   };
 
   return postcss(tailwindcss(merge(config, overrides)))
-    .process('@tailwind utilities; .my-util { @apply m-3/6r h-1/1r w-3/4r; }', {
+    .process('@tailwind utilities; .my-util { @apply m-3/6r h-12/4r w-3/4r; }', {
       from: `${path.resolve(__filename)}`,
     })
     .then(({ css }) => css);
@@ -32,9 +32,9 @@ test('utility classes can be generated', () => {
   return generatePluginCss().then(css => {
     expect(css).toMatchCss(`    
     .my-util {
-      margin: 0.5 rem;
-      height: 1 rem;
-      width: 0.75 rem;
+      margin: 0.5rem;
+      height: 3rem;
+      width: 0.75rem;
     }
     `);
   });

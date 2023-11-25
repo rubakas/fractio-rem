@@ -21,7 +21,7 @@ function generateFractioSpacing(options = {}) {
         let currentStep = s+1;
 
         let key = (currentBase * (currentRem - 1) + currentStep) + "/" + currentBase + "r";
-        let value = (currentBase * (currentRem - 1) + currentStep) / currentBase + " rem";
+        let value = (currentBase * (currentRem - 1) + currentStep) / currentBase + "rem";
         result[key] = value;
       }
     }
@@ -29,7 +29,7 @@ function generateFractioSpacing(options = {}) {
     for(let c = 0; c < remsCore.length; c++) {
       let currentRem = remsCore[c];
       let key = currentBase * currentRem + "/" + currentBase + "r";
-      let value = currentRem + " rem";
+      let value = currentRem + "rem";
       result[key] = value;
     }
 
