@@ -1,38 +1,62 @@
 const plugin = require('tailwindcss/plugin');
 
-module.exports = plugin(
-  function ({ addUtilities, theme, variants }) {
-    // If your plugin requires user config,
-    // you can access these options here.
-    // Docs: https://tailwindcss.com/docs/plugins#exposing-options
-    const options = theme('fractioRem');
+function generateFractioSpacing(options = {}) {
+  function range(startAt = 0, size = 1) {
+    return [...Array(size).keys()].map(i => i + startAt);
+  };
 
-    // Add CSS-in-JS syntax to create utility classes.
-    // Docs: https://tailwindcss.com/docs/plugins#adding-utilities
-    const utilities = {
-      '.example-utility-class': {
-        display: 'block',
-      },
-    };
+  let bases        = options.bases        || [1,3,4,6];
+  let remsDetailed = options.remsDetailed || range(1, 6);
+  let remsCore     = options.remsCore     || range(7, 10);
+  let remsMore     = options.remsMore     || [18, 20, 24, 40];
 
-    // Conditionally add utility class based on user configuration.
-    if (options.YOUR_PLUGIN_CUSTOM_OPTION) {
-      utilities['.custom-utility-class'] = {
-        'background-color': 'red',
-      };
+  let result = {};
+
+  for(let b = 0; b < bases.length; b++) {
+    let currentBase = bases[b];
+
+    for(let d = 0; d < remsDetailed.length; d++) {
+      let currentRem = remsDetailed[d];
+      for(let s = 0; s < currentBase; s++) {
+        let currentStep = s+1;
+
+        let key = (currentBase * (currentRem - 1) + currentStep) + "/" + currentBase;
+        let value = (currentBase * (currentRem - 1) + currentStep) / currentBase + "rem";
+        result[key] = value;
+      }
     }
 
-    addUtilities(utilities, {
-      variants: variants('fractioRem'),
-    });
-  },
-  {
-    theme: {
-      // Default options for your custom plugin.
-      // Docs: https://tailwindcss.com/docs/plugins#exposing-options
-      fractioRem: {
-        YOUR_PLUGIN_CUSTOM_OPTION: false,
-      },
-    },
+    for(let c = 0; c < remsCore.length; c++) {
+      let currentRem = remsCore[c];
+      let key = currentBase * currentRem + "/" + currentBase;
+      let value = currentRem + "rem";
+      result[key] = value;
+    }
+
+    for(let m = 0; m < remsMore.length; m++) {
+      let currentRem = remsMore[m];
+      let key = currentBase * currentRem + "/" + currentBase;
+      let value = currentRem + "rem";
+      result[key] = value;
+    }
   }
-);
+
+  return result;
+}
+
+const fractioRem = plugin.withOptions(
+  function (options = {}) {
+    return function() { }
+  }, 
+  function (options) {
+    return {
+      theme: {
+        extend: {
+          spacing: generateFractioSpacing(options)
+        }
+      },
+    }
+  }
+)
+
+module.exports = fractioRem;
