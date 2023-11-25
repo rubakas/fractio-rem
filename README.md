@@ -13,21 +13,7 @@ Then add the plugin to your `tailwind.config.js` file:
 ```js
 // tailwind.config.js
 module.exports = {
-  theme: {
-    // ...
-    // Optional. Your plugin might not have any options at all.
-    fractioRem: {
-      // ...
-      YOUR_PLUGIN_CUSTOM_OPTION: true,
-      // ...
-    },
-  },
-  variants: {
-    // ...
-    // Optional. Your plugin might not have any variants at all.
-    fractioRem: ['responsive'],
-    // ...
-  },
+  // ...
   plugins: [
     // ...
     require('@rubakas/fractio-rem'),
@@ -36,18 +22,18 @@ module.exports = {
 };
 ```
 
-This plugin will generate following CSS:
+This plugin will extend spacing and sizing scale with fractional units:
 
 ```css
-/* ... */
-.example-utility-class {
-  display: block;
+/* uning fractions of rem in your tailwind styles */
+.my-component {
+  @apply 
+    m-3/4 /* 3/4 = 0.75rem margin */
+    p-5/6 /* 5/6 = 0.833333rem margin */
+    w-10/1 /* 10/1 = 10rem width */
+    h-23/6 /* 23/6 = 3.833333rem height */
+    ;
 }
-
-.custom-utility-class {
-  background-color: red;
-}
-/* ... */
 ```
 
 ## License
