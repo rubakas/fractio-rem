@@ -19,12 +19,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andriytyurnikov/fractio-rem.git"
+    "url": "git+https://github.com/rubakas/fractio-rem.git"
   },
   "bugs": {
-    "url": "https://github.com/andriytyurnikov/fractio-rem/issues"
+    "url": "https://github.com/rubakas/fractio-rem/issues"
   },
-  "homepage": "https://github.com/andriytyurnikov/fractio-rem#readme",
+  "homepage": "https://github.com/rubakas/fractio-rem#readme",
   "keywords": [
     "create-tailwind-plugin",
     "tailwind-css-plugin",
