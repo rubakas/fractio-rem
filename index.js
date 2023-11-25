@@ -20,22 +20,22 @@ function generateFractioSpacing(options = {}) {
       for(let s = 0; s < currentBase; s++) {
         let currentStep = s+1;
 
-        let key = (currentBase * (currentRem - 1) + currentStep) + "/" + currentBase;
-        let value = (currentBase * (currentRem - 1) + currentStep) / currentBase + "rem";
+        let key = (currentBase * (currentRem - 1) + currentStep) + "/" + currentBase + "r";
+        let value = (currentBase * (currentRem - 1) + currentStep) / currentBase + " rem";
         result[key] = value;
       }
     }
 
     for(let c = 0; c < remsCore.length; c++) {
       let currentRem = remsCore[c];
-      let key = currentBase * currentRem + "/" + currentBase;
-      let value = currentRem + "rem";
+      let key = currentBase * currentRem + "/" + currentBase + "r";
+      let value = currentRem + " rem";
       result[key] = value;
     }
 
     for(let m = 0; m < remsMore.length; m++) {
       let currentRem = remsMore[m];
-      let key = currentBase * currentRem + "/" + currentBase;
+      let key = currentBase * currentRem + "/" + currentBase + "r";
       let value = currentRem + "rem";
       result[key] = value;
     }

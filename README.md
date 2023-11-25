@@ -28,10 +28,10 @@ This plugin will extend spacing and sizing scale with fractional units:
 /* uning fractions of rem in your tailwind styles */
 .my-component {
   @apply 
-    m-3/4 /* 3/4 = 0.75rem margin */
-    p-5/6 /* 5/6 = 0.833333rem padding */
-    w-10/1 /* 10/1 = 10rem width */
-    h-23/6 /* 23/6 = 3.833333rem height */
+    m-3/4r /* 3/4 = 0.75rem margin */
+    p-5/6r /* 5/6 = 0.833333rem padding */
+    w-10/1r /* 10/1 = 10rem width */
+    h-23/6r /* 23/6 = 3.833333rem height */
     ;
 }
 ```
