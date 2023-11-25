@@ -34,10 +34,5 @@ module.exports = plugin(
         YOUR_PLUGIN_CUSTOM_OPTION: false,
       },
     },
-    variants: {
-      // Default variants for your custom plugin.
-      // Docs: https://tailwindcss.com/docs/plugins#variants
-      fractioRem: ['responsive'],
-    },
   }
 );
