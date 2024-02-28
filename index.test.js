@@ -28,8 +28,8 @@ function generatePluginCss(overrides) {
     .then(({ css }) => css);
 }
 
-test('utility classes can be generated', () => {
-  return generatePluginCss().then(css => {
+test('utility classes can be generated', () =>
+  generatePluginCss().then(css => {
     expect(css).toMatchCss(`    
     .my-util {
       margin: 0.5rem;
@@ -37,8 +37,7 @@ test('utility classes can be generated', () => {
       width: 0.75rem;
     }
     `);
-  });
-});
+  }));
 
 // test('options can be customized', () => {
 //   return generatePluginCss({
@@ -48,7 +47,7 @@ test('utility classes can be generated', () => {
 //       },
 //     },
 //   }).then(css => {
-//     expect(css).toMatchCss(`    
+//     expect(css).toMatchCss(`
 //     .example-utility-class {
 //       display: block
 //     }
