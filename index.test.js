@@ -22,7 +22,7 @@ function generatePluginCss(overrides) {
   };
 
   return postcss(tailwindcss(merge(config, overrides)))
-    .process('@tailwind utilities; .my-util { @apply m-3/6r h-12/4r w-3/4r; }', {
+    .process('.my-util { @apply m-3/6r h-12/4r w-3/4r; }', {
       from: `${path.resolve(__filename)}`,
     })
     .then(({ css }) => css);

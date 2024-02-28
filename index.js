@@ -5,7 +5,7 @@ function generateFractioSpacing(options = {}) {
     return [...Array(size).keys()].map(i => i + startAt);
   };
 
-  let bases        = options.bases        || [1,3,4,6];
+  let bases        = options.bases        || [1,3,4,5,6];
   let remsDetailed = options.remsDetailed || range(1, 6);
   let remsCore     = options.remsCore     || range(7, 10);
   let remsMore     = options.remsMore     || [18, 20, 24, 40];
@@ -47,7 +47,7 @@ function generateFractioSpacing(options = {}) {
 const fractioRem = plugin.withOptions(
   function (options = {}) {
     return function() { }
-  }, 
+  },
   function (options) {
     return {
       theme: {
