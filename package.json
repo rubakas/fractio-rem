@@ -1,6 +1,6 @@
 {
   "name": "@rubakas/fractio-rem",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "description": "Fractional root element space and size scale",
   "main": "index.js",
   "scripts": {
